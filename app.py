@@ -37,6 +37,7 @@ with st.form('my_form'):
     st.warning('Please enter your OpenAI API key!', icon='⚠')
   # If the form is submitted and the API key is valid, generate a response
   if submitted and openai_api_key.startswith('sk-'):
-    generate_response(text)
+    response = generate_response(text)
+    st.info(response)
 
 
