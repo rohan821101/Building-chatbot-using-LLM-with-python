@@ -15,7 +15,7 @@ def generate_response(input_text):
     # Intitalizing the OpenAI language model with a specified temprature and API key
     llm = OpenAI(temperature = 0.7, openai_api_key = openai_api_key)
     # Displaying the generated response as an informational message in the Streamlit app
-    respnse = llm.generate(prompt=input_text)
+    respnse = llm.generate(prompts=input_text)
     return response
   except Exception as e:
     if 'rate_limit' in str(e).lower():
