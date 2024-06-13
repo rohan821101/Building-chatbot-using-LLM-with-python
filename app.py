@@ -22,12 +22,12 @@ with st.form('my_form'):
   # Adding a text area for user input
   text = st.text_area('Enter text:','')
   # Adding a submit button for the form
-  sumitted = st.form_submit_button('Submit')
+  submitted = st.form_submit_button('Submit')
   # Displaying a warning if the entered API key does not start with 'sk-'
   if not openai_api_key.startwith('sk-'):
     st.warning('Please enter your OpenAI API key!', icon='⚠')
   # If the form is submitted and the API key is valid, generate a response
-  if submitteed and openai_api_key.startswith('sk-'):
+  if submitted and openai_api_key.startswith('sk-'):
     generate_response(text)
 
 
