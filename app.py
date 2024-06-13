@@ -1,6 +1,6 @@
 # Importing the necessary modules from the Streamlit and LangChain packages
 import streamlit as st
-from langchain.llms import OpenAI
+from langchain_community.llms import OpenAI
 
 # Setting the title of the Streamlit application
 st.title('Simple LLM-App 🤖')
