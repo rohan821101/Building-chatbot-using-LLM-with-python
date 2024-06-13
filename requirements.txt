@@ -2,3 +2,4 @@ pip
 openai
 streamlit
 langchain
+langchain_community
