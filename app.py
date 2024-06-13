@@ -6,7 +6,7 @@ from langchain.llms import OpenAI
 st.title('Simple LLM-App 🤖')
 
 # Creating a sidebar input widget for the OpenAI API key, input type is password for security
-openai_api_key = st.sidebar.text_input('OpenAI API key', type='password')
+openai_api_key = st.sidebar.text_input('sk-proj-7760y71j5gf3ChCNrnoIT3BlbkFJ1PP8dbLaoqrIxBLQA58Q', type='password')
 
 
 # Defining a function to generate a response using the OpenAI language model
