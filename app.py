@@ -3,7 +3,7 @@ import streamlit as st
 from langchain.llms import OpenAI
 
 # Setting the title of the Streamlit application
-st.title('Simple LLM-App')
+st.title('Simple LLM-App 🤖')
 
 # Creating a sidebar input widget for the OpenAI API key, input type is password for security
 openai_api_key = st.sidebar.text_input('OpenAI API key', type='password')
