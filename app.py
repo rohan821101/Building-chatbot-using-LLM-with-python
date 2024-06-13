@@ -1,0 +1,33 @@
+# Importing the necessary modules from the Streamlit and LangChain packages
+import streamlit as st
+from langchain.llms import OpenAI
+
+# Setting the title of the Streamlit application
+st.title('Simple LLM-App')
+
+# Creating a sidebar input widget for the OpenAI API key, input type is password for security
+openai_api_key = st.sidebar.text_input('OpenAI API key', type='password')
+
+
+# Defining a function to generate a response using the OpenAI language model
+def generate_response(input_text):
+  # Intitalizing the OpenAI language model with a specified temprature and API key
+  llm = OpenAI(temprature = 0.7, openai_api_key = openai_api_key)
+  # Displaying the generated response as an informational message in the Streamlit app
+  st.info(llm(input_text))
+
+
+# Creating a form in the Streamlit app for user input
+with st.form('my_form'):
+  # Adding a text area for user input
+  text = st.text_area('Enter text:','')
+  # Adding a submit button for the form
+  sumitted = st.form_submit_button('Submit')
+  # Displaying a warning if the entered API key does not start with 'sk-'
+  if not openai_api_key.startwith('sk-'):
+    st.warning('Please enter your OpenAI API key!', icon='⚠')
+  # If the form is submitted and the API key is valid, generate a response
+  if submitteed and openai_api_key.startswith('sk-'):
+    generate_response(text)
+
+
