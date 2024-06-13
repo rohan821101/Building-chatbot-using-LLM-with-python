@@ -11,10 +11,19 @@ openai_api_key = st.sidebar.text_input('OpenAI API key', type='password')
 
 # Defining a function to generate a response using the OpenAI language model
 def generate_response(input_text):
-  # Intitalizing the OpenAI language model with a specified temprature and API key
-  llm = OpenAI(temperature = 0.7, openai_api_key = openai_api_key)
-  # Displaying the generated response as an informational message in the Streamlit app
-  st.info(llm(input_text))
+  try:
+    # Intitalizing the OpenAI language model with a specified temprature and API key
+    llm = OpenAI(temperature = 0.7, openai_api_key = openai_api_key)
+    # Displaying the generated response as an informational message in the Streamlit app
+    respnse = llm.generate(prompt=input_text)
+    return response
+  except Exception as e:
+    if 'rate_limit' in str(e).lower():
+      return "Rate Limit exceeded. Please try again later."
+    elif 'quota' in str(e).lower():
+      return "Quata exceeded. Please check your OpenAI plan and billing details."
+    else:
+      return f"An error ocurred: {e}"
 
 
 # Creating a form in the Streamlit app for user input
